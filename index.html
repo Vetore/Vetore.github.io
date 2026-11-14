@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Livros de programação para o ensino técnico: Python, C++, Automação com IA, Java, SQL e Arduino.">
+<title>Livros Amauri Vetore</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* layout: one narrow column, like a phone shelf: author header, then book "spines" as tappable rows */
+:root{
+  --bg:#F3F6F7; --surface:#FFFFFF; --fg:#0B1C26; --muted:#56707F; --line:#D5E0E5;
+  --accent:#138C7C; --accent-ink:#FFFFFF; --soon:#B8650F;
+  --display:"Space Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"Inter","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1C26; --surface:#11293A; --fg:#F2F4F0; --muted:#8FA3B3; --line:#1E3B4F;
+  --accent:#3CC6B0; --accent-ink:#0B1C26; --soon:#F2B33D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1C26; --surface:#11293A; --fg:#F2F4F0; --muted:#8FA3B3; --line:#1E3B4F;
+  --accent:#3CC6B0; --accent-ink:#0B1C26; --soon:#F2B33D; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 56px;display:flex;flex-direction:column;gap:28px}
+header{display:flex;flex-direction:column;gap:8px}
+.tag{font:500 13px var(--mono);color:var(--accent);letter-spacing:.04em}
+h1{font:700 34px/1.1 var(--display);margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--muted);max-width:44ch}
+h2{font:600 12px var(--body);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 10px}
+.list{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.book{display:grid;grid-template-columns:8px 1fr auto;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 0;color:inherit;text-decoration:none;overflow:hidden}
+.book .spine{align-self:stretch;background:var(--c,var(--accent))}
+.book .t{min-width:0}
+.book strong{display:block;font:600 16px/1.3 var(--body)}
+.book small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+.book .p{font:500 13px var(--mono);white-space:nowrap}
+a.book{transition:border-color .15s,transform .15s}
+a.book:hover,a.book:focus-visible{border-color:var(--accent);transform:translateY(-1px)}
+a.book:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a.book .p{background:var(--accent);color:var(--accent-ink);padding:6px 10px;border-radius:6px}
+.book.soon{opacity:.85}
+.book.soon .p{color:var(--soon);border:1px solid currentColor;padding:5px 9px;border-radius:6px}
+.note{font-size:13.5px;color:var(--muted);margin:0}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:reduce){a.book{transition:none}a.book:hover{transform:none}}
+</style>
+<style>*{box-sizing:border-box} body{margin:0}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="tag">// professor · autor · ensino técnico</span>
+    <h1>Livros de programação de Amauri Vetore</h1>
+    <p class="lead">Aprenda lendo a mensagem de erro, não decorando código. Todo programa dos livros foi executado de verdade, e cada unidade tem a seção Depurando e um Guia do Professor.</p>
+  </header>
+
+  <section>
+    <h2>Kindle · Amazon Brasil</h2>
+    <ul class="list">
+      <li><a class="book" style="--c:#2E75B6" href="https://www.amazon.com.br/dp/B0HRLM39XC" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Curso de C++ para o Ensino Técnico</strong><small>Lançamento · 16 unidades, da lógica à orientação a objetos</small></span><span class="p">R$ 19,90</span></a></li>
+      <li><a class="book" style="--c:#3CC6B0" href="https://www.amazon.com.br/dp/B0GX2WT9F8" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Curso de Python</strong><small>Do básico ao avançado para o ensino médio técnico</small></span><span class="p">R$ 12,00</span></a></li>
+      <li><a class="book" style="--c:#7A5AF8" href="https://www.amazon.com.br/dp/B0HQ53LGSW" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Automação com Python e Inteligência Artificial</strong><small>Excel, PDF, e-mail, web, SQL e IA na prática</small></span><span class="p">R$ 19,90</span></a></li>
+      <li><div class="book soon" style="--c:#C55A11"><span class="spine"></span><span class="t"><strong>Curso de Java para o Ensino Técnico</strong><small>16 unidades com código testado</small></span><span class="p">Em breve</span></div></li>
+      <li><div class="book soon" style="--c:#F29A3D"><span class="spine"></span><span class="t"><strong>Banco de Dados com SQL para o Ensino Técnico</strong><small>Da modelagem às transações</small></span><span class="p">Em breve</span></div></li>
+      <li><div class="book soon" style="--c:#0E7C86"><span class="spine"></span><span class="t"><strong>Arduino com C++ para o Ensino Técnico</strong><small>Do LED piscando à automação, simulado no Tinkercad</small></span><span class="p">Em breve</span></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>In English · Amazon.com</h2>
+    <ul class="list">
+      <li><a class="book" style="--c:#3CC6B0" href="https://www.amazon.com/dp/B0HMZDY63R" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Python Course</strong><small>Kindle eBook</small></span><span class="p">US$ 4,99</span></a></li>
+      <li><a class="book" style="--c:#7A5AF8" href="https://www.amazon.com/dp/B0HRJ1WM2D" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Automation with Python and AI</strong><small>Kindle eBook</small></span><span class="p">US$ 5,99</span></a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Para praticar</h2>
+    <ul class="list">
+      <li><a class="book" style="--c:#2D9C5A" href="https://meli.la/1s1ccxC" target="_blank" rel="noopener sponsored"><span class="spine"></span><span class="t"><strong>Kit Arduino no Mercado Livre</strong><small>Link de afiliado: posso receber uma comissão, sem custo extra para você</small></span><span class="p">Ver</span></a></li>
+    </ul>
+  </section>
+
+  <p class="note">Assinantes do Kindle Unlimited leem os livros em português sem custo adicional.</p>
+  <footer>Instagram @amauri_vetore · @amaurivetore.en</footer>
+</div>
+</body>
+</html>
