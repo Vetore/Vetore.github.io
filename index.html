@@ -2,89 +2,159 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Livros de programação para o ensino técnico: Python, C++, Automação com IA, Java, SQL e Arduino.">
-<title>Livros Amauri Vetore</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amauri Vetore · Livros de programação para o ensino técnico</title>
+<meta name="description" content="Professor e autor de livros de programação para o ensino técnico: Python, C++, Java, SQL, Automação com IA e Arduino. Código testado, seção Depurando e Guia do Professor.">
+<meta property="og:title" content="Amauri Vetore · Livros de programação para o ensino técnico">
+<meta property="og:description" content="Python, C++, Java, SQL, Automação com IA e Arduino. Código testado, seção Depurando e Guia do Professor.">
+<meta property="og:image" content="https://vetore.github.io/capas/cpp.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* layout: one narrow column, like a phone shelf: author header, then book "spines" as tappable rows */
 :root{
   --bg:#F3F6F7; --surface:#FFFFFF; --fg:#0B1C26; --muted:#56707F; --line:#D5E0E5;
-  --accent:#138C7C; --accent-ink:#FFFFFF; --soon:#B8650F;
+  --accent:#138C7C; --accent-ink:#FFFFFF; --soon:#B8650F; --band:#0B1C26; --band-fg:#F2F4F0; --band-muted:#9DB2C0;
   --display:"Space Grotesk","Segoe UI",system-ui,sans-serif;
   --body:"Inter","Segoe UI",system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+@media (prefers-color-scheme: dark){:root{
   --bg:#0B1C26; --surface:#11293A; --fg:#F2F4F0; --muted:#8FA3B3; --line:#1E3B4F;
-  --accent:#3CC6B0; --accent-ink:#0B1C26; --soon:#F2B33D; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0B1C26; --surface:#11293A; --fg:#F2F4F0; --muted:#8FA3B3; --line:#1E3B4F;
-  --accent:#3CC6B0; --accent-ink:#0B1C26; --soon:#F2B33D; color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
-.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 56px;display:flex;flex-direction:column;gap:28px}
-header{display:flex;flex-direction:column;gap:8px}
-.tag{font:500 13px var(--mono);color:var(--accent);letter-spacing:.04em}
-h1{font:700 34px/1.1 var(--display);margin:0;text-wrap:balance}
-.lead{margin:0;color:var(--muted);max-width:44ch}
-h2{font:600 12px var(--body);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 10px}
-.list{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
-.book{display:grid;grid-template-columns:8px 1fr auto;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 0;color:inherit;text-decoration:none;overflow:hidden}
-.book .spine{align-self:stretch;background:var(--c,var(--accent))}
-.book .t{min-width:0}
-.book strong{display:block;font:600 16px/1.3 var(--body)}
-.book small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
-.book .p{font:500 13px var(--mono);white-space:nowrap}
-a.book{transition:border-color .15s,transform .15s}
-a.book:hover,a.book:focus-visible{border-color:var(--accent);transform:translateY(-1px)}
-a.book:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-a.book .p{background:var(--accent);color:var(--accent-ink);padding:6px 10px;border-radius:6px}
-.book.soon{opacity:.85}
-.book.soon .p{color:var(--soon);border:1px solid currentColor;padding:5px 9px;border-radius:6px}
-.note{font-size:13.5px;color:var(--muted);margin:0}
-footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
-@media (prefers-reduced-motion:reduce){a.book{transition:none}a.book:hover{transform:none}}
+  --accent:#3CC6B0; --accent-ink:#0B1C26; --soon:#F2B33D; --band:#081620; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding-inline:max(18px,env(safe-area-inset-left,0px)) max(18px,env(safe-area-inset-right,0px))}
+nav{position:sticky;top:0;z-index:5;background:var(--band);color:var(--band-fg)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
+nav strong{font:700 17px var(--display)}
+nav div{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--band-fg);text-decoration:none;font-size:14px;font-weight:500;opacity:.85}
+nav a:hover,nav a:focus-visible{opacity:1;text-decoration:underline}
+.hero{background:var(--band);color:var(--band-fg);padding-block:56px 64px}
+.tag{font:500 13px var(--mono);color:#3CC6B0;letter-spacing:.04em}
+h1{font:700 clamp(32px,6vw,52px)/1.08 var(--display);margin:12px 0 16px;text-wrap:balance;max-width:17ch}
+.hero p{color:var(--band-muted);max-width:56ch;margin:0 0 26px;font-size:17px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:600;text-decoration:none;background:#3CC6B0;color:#0B1C26}
+.btn.alt{background:transparent;color:var(--band-fg);border:1px solid #3A5568}
+.btn:focus-visible,.card a:focus-visible{outline:2px solid #3CC6B0;outline-offset:3px}
+section{padding-block:56px}
+h2{font:700 28px/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 28px;max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card img,.card .ph{width:100%;aspect-ratio:5/8;object-fit:cover;display:block;background:#0B1C26}
+.card .ph{display:flex;flex-direction:column;justify-content:center;padding:22px;color:#F2F4F0;border-left:8px solid #3CC6B0}
+.ph small{font:500 11px var(--mono);color:#3CC6B0;letter-spacing:.14em;text-transform:uppercase}
+.ph b{font:700 34px/1 var(--display);margin:10px 0}
+.ph span{font-size:13px;color:#9DB2C0}
+.card .in{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font:600 16px/1.3 var(--body);margin:0}
+.card p{margin:0;font-size:13.5px;color:var(--muted);flex:1}
+.card a.buy{margin-top:8px;display:block;text-align:center;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:14px;padding:9px;border-radius:7px;text-decoration:none}
+.card .soon{margin-top:8px;text-align:center;font:500 13px var(--mono);color:var(--soon);border:1px solid currentColor;padding:8px;border-radius:7px}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.three div{border-top:3px solid var(--accent);padding-top:14px}
+.three h3{font:700 18px var(--display);margin:0 0 6px}
+.three p{margin:0;color:var(--muted);font-size:15px}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+ul.check{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+ul.check li{padding-left:26px;position:relative}
+ul.check li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:22px}
+.box h3{font:700 18px var(--display);margin:0 0 8px}
+.box p{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+.box .btn{background:var(--accent);color:var(--accent-ink)}
+.about p{max-width:66ch}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}
+.facts div b{display:block;font:700 30px var(--display);color:var(--accent)}
+.facts div span{font-size:13.5px;color:var(--muted)}
+.aff{font-size:14.5px;color:var(--muted)}
+footer{background:var(--band);color:var(--band-muted);font-size:13.5px;padding-block:28px}
+footer a{color:var(--band-fg)}
+@media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card .in{padding:10px 11px 12px}.card h3{font-size:14px}.card p{font-size:12.5px}.card a.buy,.card .soon{font-size:12.5px;padding:8px 4px}.card .ph{padding:12px}.ph b{font-size:24px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<style>*{box-sizing:border-box} body{margin:0}</style>
 </head>
 <body>
+<nav><div class="wrap"><strong>Amauri Vetore</strong><div><a href="#livros">Livros</a><a href="#metodo">Método</a><a href="#professores">Para professores</a><a href="#sobre">Sobre</a></div></div></nav>
 
-<div class="wrap">
-  <header>
-    <span class="tag">// professor · autor · ensino técnico</span>
-    <h1>Livros de programação de Amauri Vetore</h1>
-    <p class="lead">Aprenda lendo a mensagem de erro, não decorando código. Todo programa dos livros foi executado de verdade, e cada unidade tem a seção Depurando e um Guia do Professor.</p>
-  </header>
+<header class="hero"><div class="wrap">
+  <span class="tag">// professor · autor · ensino técnico</span>
+  <h1>Livros de programação que ensinam a ler o erro</h1>
+  <p>Material didático completo para cursos técnicos de Desenvolvimento de Sistemas e Informática. Todo código foi executado de verdade, e cada unidade mostra a mensagem real do erro e o caminho até a correção.</p>
+  <div class="btns"><a class="btn" href="#livros">Ver os livros</a><a class="btn alt" href="amostra-curso-de-cpp.pdf">Baixar amostra grátis (PDF)</a></div>
+</div></header>
 
-  <section>
-    <h2>Kindle · Amazon Brasil</h2>
-    <ul class="list">
-      <li><a class="book" style="--c:#2E75B6" href="https://www.amazon.com.br/dp/B0HRLM39XC" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Curso de C++ para o Ensino Técnico</strong><small>16 unidades, da lógica à orientação a objetos</small></span><span class="p">R$ 19,90</span></a></li>
-      <li><a class="book" style="--c:#3CC6B0" href="https://www.amazon.com.br/dp/B0GX2WT9F8" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Curso de Python</strong><small>Do básico ao avançado para o ensino médio técnico</small></span><span class="p">R$ 12,00</span></a></li>
-      <li><a class="book" style="--c:#7A5AF8" href="https://www.amazon.com.br/dp/B0HQ53LGSW" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Automação com Python e Inteligência Artificial</strong><small>Excel, PDF, e-mail, web, SQL e IA na prática</small></span><span class="p">R$ 19,90</span></a></li>
-      <li><a class="book" style="--c:#C55A11" href="https://www.amazon.com.br/dp/B0H9X1F43P" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Curso de Java para o Ensino Técnico</strong><small>Lançamento · 16 unidades com código testado</small></span><span class="p">R$ 19,90</span></a></li>
-      <li><a class="book" style="--c:#F29A3D" href="https://www.amazon.com.br/dp/B0H8DTZ193" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Banco de Dados com SQL para o Ensino Técnico</strong><small>Lançamento · da modelagem às transações, com MySQL</small></span><span class="p">R$ 19,90</span></a></li>
-      <li><div class="book soon" style="--c:#0E7C86"><span class="spine"></span><span class="t"><strong>Arduino com C++ para o Ensino Técnico</strong><small>Do LED piscando à automação, simulado no Tinkercad</small></span><span class="p">Em breve</span></div></li>
+<section id="livros"><div class="wrap">
+  <h2>Livros</h2>
+  <p class="sub">eBooks Kindle na Amazon Brasil. Assinantes do Kindle Unlimited leem sem custo adicional.</p>
+  <div class="grid">
+    <article class="card"><img src="capas/cpp.jpg" alt="Capa do livro Curso de C++ para o Ensino Técnico" loading="lazy"><div class="in"><h3>Curso de C++ para o Ensino Técnico</h3><p>16 unidades, da lógica de programação à orientação a objetos.</p><a class="buy" href="https://www.amazon.com.br/dp/B0HRLM39XC" target="_blank" rel="noopener">Amazon · R$ 19,90</a></div></article>
+    <article class="card"><img src="capas/java.jpg" alt="Capa do livro Curso de Java para o Ensino Técnico" loading="lazy"><div class="in"><h3>Curso de Java para o Ensino Técnico</h3><p>Lançamento. 16 unidades, com exceções, coleções e projeto integrador.</p><a class="buy" href="https://www.amazon.com.br/dp/B0H9X1F43P" target="_blank" rel="noopener">Amazon · R$ 19,90</a></div></article>
+    <article class="card"><img src="capas/sql.jpg" alt="Capa do livro Banco de Dados com SQL para o Ensino Técnico" loading="lazy"><div class="in"><h3>Banco de Dados com SQL para o Ensino Técnico</h3><p>Lançamento. Da modelagem às transações, com MySQL 8.</p><a class="buy" href="https://www.amazon.com.br/dp/B0H8DTZ193" target="_blank" rel="noopener">Amazon · R$ 19,90</a></div></article>
+    <article class="card"><div class="ph"><small>Curso técnico</small><b>Python</b><span>Do básico ao avançado</span></div><div class="in"><h3>Curso de Python</h3><p>14 unidades para o ensino médio técnico, com projetos e gabarito.</p><a class="buy" href="https://www.amazon.com.br/dp/B0GX2WT9F8" target="_blank" rel="noopener">Amazon · R$ 12,00</a></div></article>
+    <article class="card"><img src="capas/automacao.jpg" alt="Capa do livro Automação com Python e Inteligência Artificial" loading="lazy"><div class="in"><h3>Automação com Python e Inteligência Artificial</h3><p>Planilhas, PDF, e-mail, web, SQL e agentes de IA na prática.</p><a class="buy" href="https://www.amazon.com.br/dp/B0HQ53LGSW" target="_blank" rel="noopener">Amazon · R$ 19,90</a></div></article>
+    <article class="card"><img src="capas/arduino.jpg" alt="Capa do livro Arduino com C++ para o Ensino Técnico" loading="lazy"><div class="in"><h3>Arduino com C++ para o Ensino Técnico</h3><p>Do LED piscando a projetos de automação, simulados no Tinkercad.</p><div class="soon">Em breve</div></div></article>
+  </div>
+  <h2 style="margin-top:48px;font-size:22px">In English</h2>
+  <p class="sub">Kindle eBooks on Amazon.com.</p>
+  <div class="grid">
+    <article class="card"><div class="ph"><small>Technical course</small><b>Python</b><span>From the basics to advanced topics</span></div><div class="in"><h3>Python Course</h3><p>For high school and technical programs.</p><a class="buy" href="https://www.amazon.com/dp/B0HMZDY63R" target="_blank" rel="noopener">Amazon · US$ 4.99</a></div></article>
+    <article class="card"><img src="capas/automation-en.jpg" alt="Cover of Automation with Python and Artificial Intelligence" loading="lazy"><div class="in"><h3>Automation with Python and Artificial Intelligence</h3><p>Spreadsheets, documents, email, the web and AI agents.</p><a class="buy" href="https://www.amazon.com/dp/B0HRJ1WM2D" target="_blank" rel="noopener">Amazon · US$ 5.99</a></div></article>
+  </div>
+</div></section>
+
+<section id="metodo" class="band"><div class="wrap">
+  <h2>O que todos os livros têm em comum</h2>
+  <p class="sub">O aluno iniciante não trava por falta de código. Ele trava quando aparece uma mensagem que não sabe ler.</p>
+  <div class="three">
+    <div><h3>Código executado</h3><p>Todo programa foi compilado e rodado. As saídas e as mensagens de erro do livro são as reais, não foram escritas de memória.</p></div>
+    <div><h3>Seção Depurando</h3><p>Em cada unidade: a mensagem verdadeira do compilador, como ler e como corrigir. Inclui os erros silenciosos, que não geram mensagem.</p></div>
+    <div><h3>Problema norteador</h3><p>Cada unidade parte de uma situação concreta, da cantina da escola ao controle de estoque, e termina com um produto.</p></div>
+  </div>
+</div></section>
+
+<section id="professores"><div class="wrap two">
+  <div>
+    <h2>Para professores e coordenadores</h2>
+    <p class="sub">Os livros foram escritos para caber no ano letivo de um curso técnico. Cada um traz um Guia do Professor.</p>
+    <ul class="check">
+      <li>Distribuição das unidades por bimestre</li>
+      <li>Rubrica de avaliação para os projetos</li>
+      <li>Gabarito comentado, com o código executado</li>
+      <li>Metodologias ativas sugeridas em cada unidade</li>
+      <li>Projeto integrador no final do livro</li>
+      <li>Banco de desafios extras</li>
     </ul>
-  </section>
+  </div>
+  <div class="box">
+    <h3>Amostra gratuita</h3>
+    <p>Uma unidade completa do Curso de C++ (Decisões: if, else e switch), o sumário e o início do Guia do Professor, com a distribuição por bimestre e a rubrica. PDF, 17 páginas.</p>
+    <a class="btn" href="amostra-curso-de-cpp.pdf">Baixar a amostra</a>
+  </div>
+</div></section>
 
-  <section>
-    <h2>In English · Amazon.com</h2>
-    <ul class="list">
-      <li><a class="book" style="--c:#3CC6B0" href="https://www.amazon.com/dp/B0HMZDY63R" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Python Course</strong><small>Kindle eBook</small></span><span class="p">US$ 4,99</span></a></li>
-      <li><a class="book" style="--c:#7A5AF8" href="https://www.amazon.com/dp/B0HRJ1WM2D" target="_blank" rel="noopener"><span class="spine"></span><span class="t"><strong>Automation with Python and AI</strong><small>Kindle eBook</small></span><span class="p">US$ 5,99</span></a></li>
-    </ul>
-  </section>
+<section id="sobre" class="band about"><div class="wrap">
+  <h2>Sobre o autor</h2>
+  <p><strong>Amauri Vetore</strong> é professor universitário e de ensino técnico em São Paulo e coordenador de curso técnico em Desenvolvimento de Sistemas, com mais de 20 anos de atuação em TI e Engenharia de Software.</p>
+  <p>Os livros nasceram da sala de aula: da necessidade de um material em português, organizado por bimestre, que ensinasse o aluno a entender a mensagem de erro em vez de copiar código pronto.</p>
+  <div class="facts">
+    <div><b>5</b><span>livros à venda em português</span></div>
+    <div><b>2</b><span>livros em inglês</span></div>
+    <div><b>20+</b><span>anos em TI e ensino</span></div>
+  </div>
+  <p style="margin-top:26px">Acompanhe: <a href="https://www.instagram.com/amauri_vetore/" target="_blank" rel="noopener">Instagram @amauri_vetore</a> · <a href="https://www.instagram.com/amaurivetore.en/" target="_blank" rel="noopener">Instagram em inglês</a> · <a href="https://x.com/AmauriVetoreEdu" target="_blank" rel="noopener">X @AmauriVetoreEdu</a></p>
+</div></section>
 
-  <section>
-    <h2>Para praticar</h2>
-    <ul class="list">
-      <li><a class="book" style="--c:#2D9C5A" href="https://meli.la/1s1ccxC" target="_blank" rel="noopener sponsored"><span class="spine"></span><span class="t"><strong>Kit Arduino no Mercado Livre</strong><small>Link de afiliado: posso receber uma comissão, sem custo extra para você</small></span><span class="p">Ver</span></a></li>
-    </ul>
-  </section>
+<section><div class="wrap">
+  <h2 style="font-size:22px">Para praticar</h2>
+  <p class="aff"><a href="https://meli.la/1s1ccxC" target="_blank" rel="noopener sponsored">Kit Arduino no Mercado Livre</a>. Link de afiliado: posso receber uma comissão, sem custo extra para você.</p>
+</div></section>
 
-  <p class="note">Assinantes do Kindle Unlimited leem os livros em português sem custo adicional.</p>
-  <footer>Instagram @amauri_vetore · @amaurivetore.en</footer>
-</div>
+<footer><div class="wrap">© 2026 Amauri Vetore · Os preços são os da Amazon na data de atualização desta página e podem mudar.</div></footer>
 </body>
 </html>
